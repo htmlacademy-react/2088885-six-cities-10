@@ -4,7 +4,7 @@ type AppProps = {
   itemsFound: number;
 };
 
-function App({itemsFound}: AppProps): JSX.Element {
+function App({ itemsFound }: AppProps): JSX.Element {
   return (
     <div>
       <MainPage itemsFound={itemsFound}/>
