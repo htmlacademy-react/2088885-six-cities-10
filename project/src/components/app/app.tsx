@@ -1,5 +1,12 @@
-function App(): JSX.Element {
-  return <p>Hello, world!</p>;
-}
+import { MainPage } from '../../pages/main-page/main-page';
 
-export default App;
+type AppProps = {
+  countOfAvailablePlaces: number;
+};
+
+export const App = ({ countOfAvailablePlaces }: AppProps): JSX.Element => (
+  <div>
+    <MainPage countOfAvailablePlaces={countOfAvailablePlaces} />
+  </div>
+);
+
