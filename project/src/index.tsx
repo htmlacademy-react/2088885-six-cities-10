@@ -6,8 +6,12 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+const Settings = {
+  itemsFound: 5,
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App itemsFound={Settings.itemsFound}/>
   </React.StrictMode>,
 );
