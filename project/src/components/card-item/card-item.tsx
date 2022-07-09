@@ -1,4 +1,3 @@
-
 export const CardItem = () => (
   <div>
     <article className="cities__card place-card">
@@ -37,5 +36,3 @@ export const CardItem = () => (
     </article>
   </div>
 );
-
-

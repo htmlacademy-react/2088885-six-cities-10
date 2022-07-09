@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './components/app/app';
+import { App } from './components/app/app';
 
-const root = ReactDOM.createRoot(
+const ROOT = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const Settings = {
-  itemsFound: 5,
+const SETTINGS = {
+  countOfAvailablePlaces: 5,
 };
 
-root.render(
+ROOT.render(
   <React.StrictMode>
-    <App itemsFound={Settings.itemsFound}/>
+    <App countOfAvailablePlaces={SETTINGS.countOfAvailablePlaces}/>
   </React.StrictMode>,
 );

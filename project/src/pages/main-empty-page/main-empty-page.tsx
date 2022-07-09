@@ -1,4 +1,4 @@
-const MainEmptyPage = () => (
+export const MainEmptyPage = () => (
   <div>
 
     <div style={{ display: 'none' }}>
@@ -85,6 +85,6 @@ const MainEmptyPage = () => (
         </div>
       </div>
     </div>
-  </div>);
+  </div>
+);
 
-export default MainEmptyPage;

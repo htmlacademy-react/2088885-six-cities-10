@@ -1,15 +1,12 @@
-import MainPage from '../../pages/main-page/main-page';
+import { MainPage } from '../../pages/main-page/main-page';
 
 type AppProps = {
-  itemsFound: number;
+  countOfAvailablePlaces: number;
 };
 
-function App({ itemsFound }: AppProps): JSX.Element {
-  return (
-    <div>
-      <MainPage itemsFound={itemsFound}/>
-    </div>
-  );
-}
+export const App = ({ countOfAvailablePlaces }: AppProps): JSX.Element => (
+  <div>
+    <MainPage countOfAvailablePlaces={countOfAvailablePlaces} />
+  </div>
+);
 
-export default App;
