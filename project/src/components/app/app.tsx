@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from '../../constants';
+import { EAppRoute, EAuthorizationStatus } from '../../constants';
 import { FavoritePage } from '../../pages/favorites-page/favorites-page';
 import { LoginPage } from '../../pages/login-page/login-page';
 import { MainPage } from '../../pages/main-page/main-page';
@@ -16,18 +16,16 @@ type TAppProps = {
 export const App = ({ countOfAvailablePlaces, rentalOffersData }: TAppProps): JSX.Element => (
   <BrowserRouter>
     <Routes>
-      <Route path={AppRoute.Main} element={<MainPage countOfAvailablePlaces={countOfAvailablePlaces}
-        rentalOffersData={rentalOffersData}/>}
-      />
-      <Route path={AppRoute.Login} element={<LoginPage />} />
-      <Route path={AppRoute.Favorites} element={
-        <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
-          <FavoritePage rentalOffersData={rentalOffersData}/>
+      <Route path={EAppRoute.Main} element={<MainPage countOfAvailablePlaces={countOfAvailablePlaces} rentalOffersData={rentalOffersData}/>}/>
+      <Route path={EAppRoute.Login} element={<LoginPage />} />
+      <Route path={EAppRoute.Favorites} element={
+        <PrivateRoute authorizationStatus={EAuthorizationStatus.Auth}>
+          <FavoritePage rentalOffersData={rentalOffersData} />
         </PrivateRoute>
       }
       />
-      <Route path={AppRoute.Offer} element={<PropertyPage />} />
-      <Route path={AppRoute.NotFound} element={<NotFoundPage />} />
+      <Route path={EAppRoute.Offer} element={<PropertyPage />} />
+      <Route path={EAppRoute.NotFound} element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );

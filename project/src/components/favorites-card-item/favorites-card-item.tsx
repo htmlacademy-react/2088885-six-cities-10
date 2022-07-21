@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+import { EAppRoute } from '../../constants';
 import { TRentalRoomData } from '../../types/offers';
 
 type TFavoritesCardItem = {
@@ -36,7 +38,7 @@ export const FavoritesCardItem = ({ item }: TFavoritesCardItem) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{title}</a>
+          <Link to={EAppRoute.Offer}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>

@@ -1,13 +1,17 @@
+import { Link } from 'react-router-dom';
+import { EAppRoute } from '../../constants';
 import { TRentalRoomData } from '../../types/offers';
 
 type TCardItemProps = {
   item: TRentalRoomData,
+  handleMouseOver: () => void,
+  handleMouseLeave: () => void,
 };
 
-export const CardItem = ({ item }: TCardItemProps) => {
+export const CardItem = ({ item, handleMouseOver, handleMouseLeave}: TCardItemProps) => {
   const { price, title, type, image } = item;
   return (
-    <div>
+    <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
       <article className="cities__card place-card">
         <div className="place-card__mark">
           <span>Premium</span>
@@ -37,7 +41,7 @@ export const CardItem = ({ item }: TCardItemProps) => {
             </div>
           </div>
           <h2 className="place-card__name">
-            <a href="#">{title}</a>
+            <Link to={EAppRoute.Offer}>{title}</Link>
           </h2>
           <p className="place-card__type">{type}</p>
         </div>

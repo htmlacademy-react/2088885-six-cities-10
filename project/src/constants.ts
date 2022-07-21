@@ -1,4 +1,4 @@
-export enum AppRoute {
+export enum EAppRoute {
   Main = '/',
   Login = '/login',
   Favorites = '/favorites',
@@ -6,7 +6,7 @@ export enum AppRoute {
   NotFound = '*'
 }
 
-export enum AuthorizationStatus {
+export enum EAuthorizationStatus {
   Auth = 'AUTH',
   NoAuth = 'NO_AUTH',
   Unknown = 'UNKNOWN',
