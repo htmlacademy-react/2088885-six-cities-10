@@ -3,10 +3,10 @@ type IItemList<T> = {
   renderItem: (item: T) => React.ReactNode
 }
 
-export function ItemList<T>(props: IItemList<T>) {
+export function ItemList<T>({items, renderItem}: IItemList<T>) {
   return (
     <>
-      {props.items.map(props.renderItem)}
+      {items.map(renderItem)}
     </>
   );
 }

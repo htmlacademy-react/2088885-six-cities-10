@@ -1,24 +1,26 @@
-import { Link } from 'react-router-dom';
-import { EAppRoute } from '../../constants';
+import { useNavigate } from 'react-router-dom';
 import { TRentalRoomData } from '../../types/offers';
 
 type TCardItemProps = {
   item: TRentalRoomData,
-  handleMouseOver: () => void,
-  handleMouseLeave: () => void,
+  handleMouseOver: (id: number) => void,
 };
 
-export const CardItem = ({ item, handleMouseOver, handleMouseLeave}: TCardItemProps) => {
-  const { price, title, type, image } = item;
+export const CardItem = ({ item, handleMouseOver}: TCardItemProps) => {
+  const { price, title, type, previewImage, id} = item;
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/offer/${id}`);
+  };
   return (
-    <div onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+    <div onMouseOver={() => handleMouseOver(id)} onClick={handleClick}>
       <article className="cities__card place-card">
         <div className="place-card__mark">
           <span>Premium</span>
         </div>
         <div className="cities__image-wrapper place-card__image-wrapper">
           <a href="#">
-            <img className="place-card__image" src={image} width="260" height="200" alt="Place image" />
+            <img className="place-card__image" src={previewImage} width="260" height="200" alt="Place image" />
           </a>
         </div>
         <div className="place-card__info">
@@ -41,7 +43,7 @@ export const CardItem = ({ item, handleMouseOver, handleMouseLeave}: TCardItemPr
             </div>
           </div>
           <h2 className="place-card__name">
-            <Link to={EAppRoute.Offer}>{title}</Link>
+            {title}
           </h2>
           <p className="place-card__type">{type}</p>
         </div>

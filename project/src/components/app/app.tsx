@@ -1,10 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { EAppRoute, EAuthorizationStatus } from '../../constants';
+import { AppRoute, AuthorizationStatus } from '../../constants';
 import { FavoritePage } from '../../pages/favorites-page/favorites-page';
 import { LoginPage } from '../../pages/login-page/login-page';
 import { MainPage } from '../../pages/main-page/main-page';
 import { NotFoundPage } from '../../pages/not-found-page/not-found-page';
-import { PropertyPage } from '../../pages/property-page/property-page';
+import { ItemPage } from '../../pages/item-page/item-page';
 import { TRentalOfferData } from '../../types/offers';
 import { PrivateRoute } from '../private-route/private-route';
 
@@ -16,16 +16,16 @@ type TAppProps = {
 export const App = ({ countOfAvailablePlaces, rentalOffersData }: TAppProps): JSX.Element => (
   <BrowserRouter>
     <Routes>
-      <Route path={EAppRoute.Main} element={<MainPage countOfAvailablePlaces={countOfAvailablePlaces} rentalOffersData={rentalOffersData}/>}/>
-      <Route path={EAppRoute.Login} element={<LoginPage />} />
-      <Route path={EAppRoute.Favorites} element={
-        <PrivateRoute authorizationStatus={EAuthorizationStatus.Auth}>
+      <Route path={AppRoute.Main} element={<MainPage countOfAvailablePlaces={countOfAvailablePlaces} rentalOffersData={rentalOffersData}/>}/>
+      <Route path={AppRoute.Login} element={<LoginPage />} />
+      <Route path={AppRoute.Favorites} element={
+        <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
           <FavoritePage rentalOffersData={rentalOffersData} />
         </PrivateRoute>
       }
       />
-      <Route path={EAppRoute.Offer} element={<PropertyPage />} />
-      <Route path={EAppRoute.NotFound} element={<NotFoundPage />} />
+      <Route path={AppRoute.Offer} element={< ItemPage />} />
+      <Route path={AppRoute.NotFound} element={<NotFoundPage />} />
     </Routes>
   </BrowserRouter>
 );

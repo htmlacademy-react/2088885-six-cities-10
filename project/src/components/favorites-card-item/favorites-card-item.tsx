@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { EAppRoute } from '../../constants';
+import { AppRoute } from '../../constants';
 import { TRentalRoomData } from '../../types/offers';
 
 type TFavoritesCardItem = {
@@ -7,7 +7,7 @@ type TFavoritesCardItem = {
 }
 
 export const FavoritesCardItem = ({ item }: TFavoritesCardItem) => {
-  const { price, title, type, image } = item;
+  const { price, title, type, previewImage } = item;
   return (
     <article className="favorites__card place-card">
       <div className="place-card__mark">
@@ -15,7 +15,7 @@ export const FavoritesCardItem = ({ item }: TFavoritesCardItem) => {
       </div>
       <div className="favorites__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src={image} width="150" height="110" alt="Place image" />
+          <img className="place-card__image" src={previewImage} width="150" height="110" alt="Place image" />
         </a>
       </div>
       <div className="favorites__card-info place-card__info">
@@ -38,7 +38,7 @@ export const FavoritesCardItem = ({ item }: TFavoritesCardItem) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <Link to={EAppRoute.Offer}>{title}</Link>
+          <Link to={AppRoute.Offer}>{title}</Link>
         </h2>
         <p className="place-card__type">{type}</p>
       </div>
